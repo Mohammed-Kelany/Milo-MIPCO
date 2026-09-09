@@ -1,4 +1,3 @@
-
 /* =========================================================
    MIPCO - MAIN JAVASCRIPT
    الوظائف: قائمة الجوال، القائمة المنسدلة، تأثير التمرير،
@@ -150,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const service = document.getElementById("service").value;
             const message = document.getElementById("message").value.trim();
 
-            // التحقق من أن الحقول الإلزامية ممتلئة (اختياري، لأن HTML required يقوم بالتحقق)
+            // التحقق من أن الحقول الإلزامية ممتلئة
             if (!fullName || !phone || !service) {
                 alert("يرجى ملء الحقول المطلوبة: الاسم، الهاتف، الخدمة");
                 return;
@@ -168,13 +167,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // رقم الواتساب (بصيغة دولية بدون + أو 00)
-            const whatsappNumber = "201289992138 ";
+            const whatsappNumber = "201289992138"; // تم تغيير الرقم إلى 01289992138
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
             // فتح الرابط في نافذة جديدة
             window.open(whatsappURL, "_blank");
 
-            // عرض رسالة نجاح (اختياري)
+            // عرض رسالة نجاح
             if (formMessage) {
                 formMessage.textContent = "تم تجهيز طلبك، سيتم فتح واتساب لإرساله.";
                 formMessage.className = "form-message success";
@@ -185,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 5000);
             }
 
-            // إعادة تعيين النموذج (اختياري)
+            // إعادة تعيين النموذج
             contactForm.reset();
         });
     }
@@ -199,4 +198,4 @@ document.addEventListener("DOMContentLoaded", function () {
         whatsappButton.style.visibility = "visible";
     }
 
-}); 
+});
