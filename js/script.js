@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // رقم الواتساب (بصيغة دولية بدون + أو 00)
-            const whatsappNumber = "201227716700";
+            const whatsappNumber = "201289992138 ";
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
             // فتح الرابط في نافذة جديدة
