@@ -1,4 +1,3 @@
-
 /* =========================================================
    MIPCO - MILO ELEVATOR PLANT
    MAIN RESPONSIVE STYLESHEET
@@ -46,10 +45,17 @@ body {
     min-width: 0;
     overflow-x: hidden;
     font-family: "Cairo", sans-serif;
-    direction: rtl;
     color: var(--text);
     background: var(--white);
     line-height: 1.8;
+}
+
+/* الاتجاه حسب اللغة - بدون تعارض مع JS */
+html[dir="rtl"] body {
+    direction: rtl;
+}
+html[dir="ltr"] body {
+    direction: ltr;
 }
 
 img {
@@ -262,7 +268,36 @@ button {
 }
 
 /* =========================================================
-   7. BUTTONS
+   7. LANGUAGE SWITCHER
+========================================================= */
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid rgba(199, 164, 90, 0.5);
+    border-radius: 6px;
+    background: rgba(199, 164, 90, 0.08);
+    color: var(--gold-light);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.lang-switcher:hover {
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+}
+.lang-switcher i {
+    font-size: 14px;
+}
+
+/* =========================================================
+   8. BUTTONS
 ========================================================= */
 .btn {
     display: inline-flex;
@@ -300,7 +335,7 @@ button {
 }
 
 /* =========================================================
-   8. HERO
+   9. HERO
 ========================================================= */
 .hero {
     position: relative;
@@ -340,7 +375,7 @@ button {
 }
 
 /* =========================================================
-   9. HERO CONTENT
+   10. HERO CONTENT
 ========================================================= */
 .hero-content {
     position: relative;
@@ -395,7 +430,7 @@ button {
 }
 
 /* =========================================================
-   10. HERO CARD
+   11. HERO CARD
 ========================================================= */
 .hero-card {
     width: 100%;
@@ -436,7 +471,7 @@ button {
 }
 
 /* =========================================================
-   11. SECTIONS
+   12. SECTIONS
 ========================================================= */
 .section {
     width: 100%;
@@ -469,7 +504,7 @@ button {
 }
 
 /* =========================================================
-   12. ABOUT
+   13. ABOUT
 ========================================================= */
 .about-grid {
     display: grid;
@@ -520,7 +555,7 @@ button {
 }
 
 /* =========================================================
-   13. SERVICES
+   14. SERVICES
 ========================================================= */
 .services {
     background: var(--light);
@@ -580,7 +615,7 @@ button {
 }
 
 /* =========================================================
-   14. PRODUCTS
+   15. PRODUCTS
 ========================================================= */
 .products-grid {
     display: grid;
@@ -620,7 +655,7 @@ button {
 }
 
 /* =========================================================
-   15. ESCALATORS
+   16. ESCALATORS
 ========================================================= */
 .escalators {
     background: var(--light);
@@ -654,7 +689,7 @@ button {
 }
 
 /* =========================================================
-   16. WHY US
+   17. WHY US
 ========================================================= */
 .why-us {
     background: var(--navy);
@@ -690,7 +725,7 @@ button {
 }
 
 /* =========================================================
-   17. SPARE PARTS
+   18. SPARE PARTS
 ========================================================= */
 .parts {
     background: linear-gradient(90deg, rgba(7, 26, 51, 0.95), rgba(7, 26, 51, 0.7)), url("../images/elevator-parts.jpg") center / cover no-repeat;
@@ -710,7 +745,7 @@ button {
 }
 
 /* =========================================================
-   18. CONTACT
+   19. CONTACT
 ========================================================= */
 .contact-grid {
     display: grid;
@@ -809,7 +844,7 @@ button {
 }
 
 /* =========================================================
-   19. CLIENTS
+   20. CLIENTS
 ========================================================= */
 .clients {
     padding: 90px 0;
@@ -825,11 +860,11 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; /* إزالة الحشو ليتمدد الشعار */
+    padding: 0;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 8px;
-    overflow: hidden; /* لضمان تغطية كاملة */
+    overflow: hidden;
     transition: transform var(--transition), box-shadow var(--transition);
 }
 .client-logo:hover {
@@ -839,11 +874,11 @@ button {
 .client-logo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ملء الخانة بالكامل مع قص الأطراف إذا لزم */
+    object-fit: cover;
 }
 
 /* =========================================================
-   20. FOOTER
+   21. FOOTER
 ========================================================= */
 .footer {
     padding-top: 70px;
@@ -880,7 +915,6 @@ button {
 .footer a:hover {
     color: var(--gold-light);
 }
-/* جعل روابط الهاتف والبريد في الفوتر بنفس التنسيق */
 .footer a[href^="tel"],
 .footer a[href^="mailto"] {
     color: #aeb9c5;
@@ -913,7 +947,7 @@ button {
 }
 
 /* =========================================================
-   21. WHATSAPP BUTTON
+   22. WHATSAPP BUTTON
 ========================================================= */
 .whatsapp-float {
     position: fixed;
@@ -955,7 +989,32 @@ button {
 }
 
 /* =========================================================
-   22. TABLET
+   23. LTR OVERRIDES (ENGLISH)
+========================================================= */
+html[dir="ltr"] .navbar > a::after {
+    right: auto;
+    left: 0;
+}
+html[dir="ltr"] .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+html[dir="ltr"] .escalators-content ul {
+    padding-right: 0;
+    padding-left: 20px;
+}
+html[dir="ltr"] .hero-overlay {
+    background: linear-gradient(270deg, rgba(7, 26, 51, 0.96), rgba(7, 26, 51, 0.48));
+}
+html[dir="ltr"] .hero h1 span {
+    display: inline;
+}
+html[dir="ltr"] .contact-item {
+    align-items: flex-start;
+}
+
+/* =========================================================
+   24. TABLET
 ========================================================= */
 @media (max-width: 1000px) {
     :root {
@@ -966,6 +1025,11 @@ button {
     }
     .nav-quote-btn {
         display: none;
+    }
+    .lang-switcher {
+        height: 42px;
+        padding: 0 12px;
+        font-size: 12px;
     }
     .navbar {
         position: absolute;
@@ -1046,7 +1110,7 @@ button {
 }
 
 /* =========================================================
-   23. MOBILE
+   25. MOBILE
 ========================================================= */
 @media (max-width: 700px) {
     :root {
@@ -1185,7 +1249,7 @@ button {
 }
 
 /* =========================================================
-   24. SMALL MOBILE
+   26. SMALL MOBILE
 ========================================================= */
 @media (max-width: 450px) {
     .logo-text {
@@ -1194,6 +1258,14 @@ button {
     .logo img {
         width: 60px;
         height: 56px;
+    }
+    .lang-switcher {
+        padding: 0 10px;
+        font-size: 11px;
+        gap: 4px;
+    }
+    .lang-switcher i {
+        font-size: 13px;
     }
     .hero h1 {
         font-size: 34px;
@@ -1217,7 +1289,7 @@ button {
 }
 
 /* =========================================================
-   25. REDUCED MOTION
+   27. REDUCED MOTION
 ========================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -1230,79 +1302,4 @@ button {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-} 
-
-/* =========================================================
-   26. LANGUAGE SWITCHER
-========================================================= */
-.lang-switcher {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    height: 42px;
-    padding: 0 14px;
-    border: 1px solid rgba(199, 164, 90, 0.5);
-    border-radius: 6px;
-    background: rgba(199, 164, 90, 0.08);
-    color: var(--gold-light);
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    flex-shrink: 0;
-    transition: background var(--transition), color var(--transition), border-color var(--transition);
-}
-.lang-switcher:hover {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
-}
-.lang-switcher i {
-    font-size: 14px;
-}
-
-/* =========================================================
-   27. LTR (English) ADJUSTMENTS
-========================================================= */
-body[dir="ltr"] {
-    font-family: "Cairo", sans-serif;
-}
-body[dir="ltr"] .navbar > a::after {
-    right: auto;
-    left: 0;
-}
-body[dir="ltr"] .dropdown-menu {
-    right: auto;
-    left: 0;
-}
-body[dir="ltr"] .escalators-content ul {
-    padding-right: 0;
-    padding-left: 20px;
-}
-body[dir="ltr"] .hero-overlay {
-    background: linear-gradient(270deg, rgba(7, 26, 51, 0.96), rgba(7, 26, 51, 0.48));
-}
-body[dir="ltr"] .hero h1 span {
-    display: inline;
-}
-
-/* =========================================================
-   28. LANGUAGE SWITCHER RESPONSIVE
-========================================================= */
-@media (max-width: 1000px) {
-    .lang-switcher {
-        height: 42px;
-        padding: 0 12px;
-        font-size: 12px;
-    }
-}
-@media (max-width: 450px) {
-    .lang-switcher {
-        padding: 0 10px;
-        font-size: 11px;
-        gap: 4px;
-    }
-    .lang-switcher i {
-        font-size: 13px;
-    }
-}
+   }
