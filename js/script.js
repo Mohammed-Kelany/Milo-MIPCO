@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
        المتغيرات الحالية
     ===================================================== */
     let currentLang = localStorage.getItem("mipco_lang") || "ar";
-    let currentWhatsappNumber = "201289992138";
+    const currentWhatsappNumber = "201289992138";
 
     /* =====================================================
        تطبيق اللغة
@@ -275,10 +275,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const t = translations[lang];
         if (!t) return;
 
-        // تغيير lang و dir في الـ html
+        // تغيير lang و dir في الـ html فقط (بدون لمس body)
         document.documentElement.setAttribute("lang", lang);
         document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-        document.body.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
 
         // ترجمة العناصر النصية
         document.querySelectorAll("[data-i18n]").forEach(function (el) {
