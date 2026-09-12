@@ -50,7 +50,6 @@ body {
     line-height: 1.8;
 }
 
-/* الاتجاه حسب اللغة - بدون تعارض مع JS */
 html[dir="rtl"] body {
     direction: rtl;
 }
@@ -340,7 +339,7 @@ button {
 .hero {
     position: relative;
     width: 100%;
-    min-height: 850px;
+    min-height: 620px;
     display: flex;
     align-items: center;
     padding-top: var(--header-height);
@@ -384,11 +383,11 @@ button {
     max-width: var(--container);
     margin-right: auto;
     margin-left: auto;
-    padding: 70px 20px 60px;
+    padding: 50px 20px 40px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
     align-items: center;
-    gap: 55px;
+    gap: 40px;
 }
 .hero-text {
     width: 100%;
@@ -396,19 +395,19 @@ button {
 }
 .hero-small {
     display: inline-block;
-    padding: 7px 14px;
-    margin-bottom: 8px;
+    padding: 6px 12px;
+    margin-bottom: 6px;
     border: 1px solid rgba(199, 164, 90, 0.4);
     background: rgba(199, 164, 90, 0.08);
     color: var(--gold-light);
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 2px;
 }
 .hero h1 {
-    margin: 18px 0;
+    margin: 14px 0;
     max-width: 700px;
     color: var(--white);
-    font-size: clamp(42px, 5vw, 70px);
+    font-size: clamp(34px, 4.2vw, 56px);
     line-height: 1.25;
     font-weight: 800;
 }
@@ -418,15 +417,15 @@ button {
 }
 .hero-text > p {
     max-width: 600px;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
     color: #e3e8ed;
-    font-size: 17px;
-    line-height: 2;
+    font-size: 16px;
+    line-height: 1.9;
 }
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
 }
 
 /* =========================================================
@@ -434,7 +433,7 @@ button {
 ========================================================= */
 .hero-card {
     width: 100%;
-    padding: 32px;
+    padding: 26px;
     background: linear-gradient(135deg, rgba(12, 43, 77, 0.96), rgba(7, 26, 51, 0.92));
     border: 1px solid rgba(199, 164, 90, 0.45);
     border-radius: var(--radius);
@@ -442,23 +441,23 @@ button {
 }
 .hero-card-label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: var(--gold-light);
     font-size: 11px;
     font-weight: 700;
 }
 .hero-card h3 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: var(--white);
-    font-size: 23px;
+    font-size: 20px;
 }
 .hero-service-list div {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 0;
+    padding: 10px 0;
     color: #e3e8ee;
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .hero-service-list div:last-child {
@@ -475,16 +474,16 @@ button {
 ========================================================= */
 .section {
     width: 100%;
-    padding: 100px 0;
+    padding: 60px 0;
 }
 .section-heading {
     max-width: 700px;
-    margin: 0 auto 50px;
+    margin: 0 auto 35px;
     text-align: center;
 }
 .section-label {
     color: var(--gold);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
     letter-spacing: 1px;
 }
@@ -493,9 +492,9 @@ button {
 .escalators-content h2,
 .contact-info h2,
 .parts h2 {
-    margin: 10px 0 15px;
+    margin: 8px 0 12px;
     color: var(--navy);
-    font-size: 38px;
+    font-size: 32px;
     line-height: 1.4;
 }
 .section-heading p {
@@ -509,12 +508,12 @@ button {
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 60px;
+    gap: 50px;
     align-items: center;
 }
 .about-image,
 .image-placeholder {
-    min-height: 460px;
+    min-height: 400px;
 }
 .image-placeholder {
     display: flex;
@@ -525,7 +524,7 @@ button {
 }
 .image-placeholder span {
     color: var(--gold-light);
-    font-size: 58px;
+    font-size: 52px;
     font-weight: 800;
     letter-spacing: 6px;
 }
@@ -535,15 +534,15 @@ button {
     letter-spacing: 3px;
 }
 .about-content p {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: var(--gray);
     font-size: 15px;
 }
 .about-features {
     display: flex;
     flex-wrap: wrap;
-    gap: 35px;
-    margin: 30px 0;
+    gap: 28px;
+    margin: 22px 0;
 }
 .about-features div {
     display: flex;
@@ -551,90 +550,209 @@ button {
 }
 .about-features strong {
     color: var(--gold);
-    font-size: 25px;
+    font-size: 24px;
 }
 
 /* =========================================================
-   14. SERVICES
+   14. SERVICES ACCORDION
 ========================================================= */
 .services {
     background: var(--light);
 }
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+
+.services-accordion {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
-.service-card {
-    position: relative;
-    padding: 30px;
-    overflow: hidden;
+
+.accordion-item {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
-    transition: transform var(--transition), box-shadow var(--transition);
+    overflow: hidden;
+    transition: box-shadow var(--transition), border-color var(--transition);
 }
-.service-card:hover {
-    transform: translateY(-7px);
+
+.accordion-item:hover {
     box-shadow: var(--shadow-sm);
 }
-.service-icon {
-    width: 50px;
-    height: 50px;
+
+.accordion-item.active {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-sm);
+}
+
+.accordion-header {
+    width: 100%;
     display: flex;
     align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    border: none;
+    background: transparent;
+    text-align: right;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background var(--transition);
+}
+
+html[dir="ltr"] .accordion-header {
+    text-align: left;
+}
+
+.accordion-header:hover {
+    background: var(--light);
+}
+
+.accordion-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    flex-shrink: 0;
     border-radius: 10px;
     background: var(--navy);
     color: var(--gold-light);
-    font-size: 20px;
+    font-size: 16px;
+    transition: background var(--transition);
 }
-.service-card h3 {
-    margin-bottom: 10px;
+
+.accordion-item.active .accordion-icon {
+    background: var(--gold);
     color: var(--navy);
-    font-size: 19px;
 }
-.service-card p {
-    margin-bottom: 18px;
-    color: var(--gray);
-    font-size: 14px;
-}
-.service-card a {
-    color: var(--gold);
+
+.accordion-title {
+    flex: 1;
+    color: var(--navy);
+    font-size: 16px;
     font-weight: 700;
 }
-.service-highlight {
-    background: var(--navy);
+
+.accordion-arrow {
+    color: var(--gold);
+    font-size: 13px;
+    transition: transform var(--transition);
+    flex-shrink: 0;
 }
-.service-highlight h3 {
-    color: var(--white);
+
+.accordion-item.active .accordion-arrow {
+    transform: rotate(180deg);
 }
-.service-highlight p {
-    color: #cbd3dd;
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 20px;
+}
+
+.accordion-item.active .accordion-body {
+    max-height: 300px;
+    padding: 0 20px 18px;
+}
+
+.accordion-body p {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.accordion-link {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    transition: color var(--transition);
+}
+
+.accordion-link:hover {
+    color: var(--gold-light);
 }
 
 /* =========================================================
-   15. PRODUCTS
+   15. PRODUCTS (SWIPER)
 ========================================================= */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
+.products {
+    background: var(--white);
 }
+
+.products-swiper {
+    padding: 0 5px 50px;
+    overflow: hidden;
+}
+
+.products-swiper .swiper-slide {
+    height: auto;
+}
+
+.products-swiper .product-card {
+    height: 100%;
+}
+
+.products-swiper .swiper-pagination {
+    bottom: 0 !important;
+}
+
+.products-swiper .swiper-pagination-bullet {
+    background: var(--gray);
+    opacity: 0.4;
+    transition: opacity var(--transition);
+}
+
+.products-swiper .swiper-pagination-bullet-active {
+    background: var(--gold);
+    opacity: 1;
+    width: 22px;
+    border-radius: 4px;
+}
+
+.products-swiper .swiper-button-next,
+.products-swiper .swiper-button-prev {
+    color: var(--gold);
+    --swiper-navigation-size: 20px;
+    width: 38px;
+    height: 38px;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background var(--transition), color var(--transition);
+}
+
+.products-swiper .swiper-button-next:hover,
+.products-swiper .swiper-button-prev:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.products-swiper .swiper-button-next::after,
+.products-swiper .swiper-button-prev::after {
+    font-size: 14px;
+    font-weight: 900;
+}
+
 .product-card {
     overflow: hidden;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
     transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 .product-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-sm);
 }
 .product-image {
-    height: 240px;
+    height: 200px;
     overflow: hidden;
     background: var(--navy);
 }
@@ -644,14 +762,15 @@ button {
     object-fit: cover;
 }
 .product-card h3 {
-    margin: 20px 20px 8px;
+    margin: 16px 18px 6px;
     color: var(--navy);
-    font-size: 18px;
+    font-size: 17px;
 }
 .product-card p {
-    margin: 0 20px 20px;
+    margin: 0 18px 18px;
     color: var(--gray);
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.7;
 }
 
 /* =========================================================
@@ -663,19 +782,19 @@ button {
 .escalators-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 55px;
+    gap: 45px;
     align-items: center;
 }
 .escalators-content p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: var(--gray);
 }
 .escalators-content ul {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding-right: 20px;
 }
 .escalators-content li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 .escalator-image {
     overflow: hidden;
@@ -684,7 +803,7 @@ button {
 }
 .escalator-image img {
     width: 100%;
-    min-height: 450px;
+    min-height: 380px;
     object-fit: cover;
 }
 
@@ -704,24 +823,30 @@ button {
 .why-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
+    gap: 18px;
 }
 .why-card {
-    padding: 28px;
+    padding: 22px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
+    transition: border-color var(--transition), background var(--transition);
+}
+.why-card:hover {
+    border-color: rgba(199, 164, 90, 0.4);
+    background: rgba(199, 164, 90, 0.05);
 }
 .why-card > span {
     color: var(--gold-light);
-    font-size: 28px;
+    font-size: 26px;
 }
 .why-card h3 {
-    margin: 10px 0;
-    font-size: 18px;
+    margin: 8px 0;
+    font-size: 17px;
 }
 .why-card p {
     color: #cbd3dd;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.7;
 }
 
 /* =========================================================
@@ -740,7 +865,7 @@ button {
     color: var(--white);
 }
 .parts p {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: #d0d7df;
 }
 
@@ -750,14 +875,14 @@ button {
 .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 60px;
+    gap: 50px;
 }
 .contact-info > p {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: var(--gray);
 }
 .contact-item {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
 }
@@ -777,8 +902,8 @@ button {
 }
 .contact-form {
     display: grid;
-    gap: 15px;
-    padding: 35px;
+    gap: 14px;
+    padding: 28px;
     background: var(--light);
     border-radius: 12px;
 }
@@ -790,14 +915,15 @@ button {
 .contact-form select,
 .contact-form textarea {
     width: 100%;
-    padding: 14px;
+    padding: 12px 14px;
     border: 1px solid #dfe3e7;
     border-radius: 6px;
     outline: none;
     background: var(--white);
+    font-size: 14px;
 }
 .contact-form textarea {
-    min-height: 130px;
+    min-height: 110px;
     resize: vertical;
 }
 .contact-form input:focus,
@@ -809,6 +935,7 @@ button {
 .contact-form .btn {
     width: 100%;
 }
+
 /* visually hidden */
 .visually-hidden {
     position: absolute;
@@ -821,6 +948,7 @@ button {
     white-space: nowrap;
     border: 0;
 }
+
 /* form message */
 .form-message {
     margin-top: 10px;
@@ -844,56 +972,88 @@ button {
 }
 
 /* =========================================================
-   20. CLIENTS
+   20. CLIENTS (MARQUEE - حركة مستمرة)
 ========================================================= */
 .clients {
-    padding: 90px 0;
+    padding: 60px 0;
     background: var(--light);
+    overflow: hidden;
 }
-.clients-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+.clients-marquee {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
     gap: 20px;
+    width: max-content;
+    animation: marqueeScroll 60s linear infinite;
+    will-change: transform;
 }
+
+.clients-marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+html[dir="ltr"] .marquee-track {
+    animation-name: marqueeScroll;
+}
+
 .client-logo {
-    height: 140px;
+    flex: 0 0 auto;
+    width: 160px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 12px;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 8px;
-    overflow: hidden;
     transition: transform var(--transition), box-shadow var(--transition);
 }
 .client-logo:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-sm);
 }
 .client-logo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* =========================================================
    21. FOOTER
 ========================================================= */
 .footer {
-    padding-top: 70px;
+    padding-top: 50px;
     background: var(--navy-dark);
     color: var(--white);
 }
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 45px;
+    gap: 35px;
+    padding-bottom: 35px;
 }
 .footer-logo {
     color: var(--gold-light);
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 800;
     letter-spacing: 5px;
 }
@@ -923,23 +1083,35 @@ button {
 .footer a[href^="mailto"]:hover {
     color: var(--gold-light);
 }
+
+/* SOCIAL LINKS (FOOTER) */
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 18px;
+    max-width: 280px;
 }
 .social-links a {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
+    color: var(--gold-light);
+    transition: transform var(--transition), background var(--transition), color var(--transition);
 }
+.social-links a:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateY(-3px);
+}
+
 .copyright {
-    padding: 20px;
+    padding: 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     color: #8995a3;
@@ -953,15 +1125,15 @@ button {
     position: fixed;
     left: 22px;
     bottom: 22px;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #25d366;
     color: #ffffff;
     border-radius: 50%;
-    font-size: 31px;
+    font-size: 30px;
     z-index: 999;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.28);
     isolation: isolate;
@@ -1027,7 +1199,7 @@ html[dir="ltr"] .contact-item {
         display: none;
     }
     .lang-switcher {
-        height: 42px;
+        height: 40px;
         padding: 0 12px;
         font-size: 12px;
     }
@@ -1082,8 +1254,8 @@ html[dir="ltr"] .contact-item {
     .hero-content {
         grid-template-columns: 1fr;
         max-width: 760px;
-        gap: 35px;
-        padding-top: 70px;
+        gap: 30px;
+        padding-top: 40px;
     }
     .hero-card {
         max-width: 520px;
@@ -1091,21 +1263,24 @@ html[dir="ltr"] .contact-item {
     .about-grid,
     .escalators-grid {
         grid-template-columns: 1fr;
+        gap: 35px;
     }
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .products-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .about-image,
+    .image-placeholder {
+        min-height: 330px;
     }
     .why-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .clients-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .escalator-image img {
+        min-height: 320px;
     }
 }
 
@@ -1148,8 +1323,8 @@ html[dir="ltr"] .contact-item {
     }
     .hero-content {
         width: 100%;
-        padding: 50px 16px 50px;
-        gap: 28px;
+        padding: 40px 16px 40px;
+        gap: 24px;
     }
     .hero-text {
         width: 100%;
@@ -1158,13 +1333,13 @@ html[dir="ltr"] .contact-item {
         font-size: 10px;
     }
     .hero h1 {
-        font-size: 38px;
-        line-height: 1.35;
-        margin: 15px 0;
+        font-size: 34px;
+        line-height: 1.3;
+        margin: 12px 0;
     }
     .hero-text > p {
-        font-size: 15px;
-        line-height: 2;
+        font-size: 14px;
+        line-height: 1.9;
     }
     .hero-buttons {
         flex-direction: column;
@@ -1176,75 +1351,94 @@ html[dir="ltr"] .contact-item {
     .hero-card {
         width: 100%;
         max-width: none;
-        padding: 22px;
+        padding: 20px;
     }
     .hero-card h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
     .hero-service-list div {
-        font-size: 13px;
+        font-size: 12px;
+        padding: 8px 0;
     }
     .section {
-        padding: 70px 0;
+        padding: 45px 0;
     }
     .section-heading {
-        margin-bottom: 35px;
+        margin-bottom: 25px;
     }
     .section-heading h2,
     .about-content h2,
     .escalators-content h2,
     .contact-info h2,
     .parts h2 {
-        font-size: 29px;
+        font-size: 26px;
     }
     .about-image,
     .image-placeholder {
-        min-height: 330px;
+        min-height: 280px;
     }
     .image-placeholder span {
-        font-size: 45px;
+        font-size: 40px;
     }
     .about-features {
-        gap: 25px;
+        gap: 20px;
     }
-    .services-grid,
-    .products-grid,
-    .why-grid {
-        grid-template-columns: 1fr;
-    }
-    .service-card {
-        padding: 25px;
-    }
-    .product-image {
-        height: 240px;
-    }
-    .escalator-image img {
-        min-height: 350px;
-    }
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-    .contact-form {
-        padding: 20px;
-    }
-    .clients-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .accordion-header {
+        padding: 14px 16px;
         gap: 12px;
     }
+    .accordion-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+    .accordion-title {
+        font-size: 15px;
+    }
+    .accordion-body {
+        padding: 0 16px;
+    }
+    .accordion-item.active .accordion-body {
+        padding: 0 16px 16px;
+    }
+    .products-swiper {
+        padding: 0 0 45px;
+    }
+    .products-swiper .swiper-button-next,
+    .products-swiper .swiper-button-prev {
+        display: none;
+    }
+    .product-image {
+        height: 200px;
+    }
+    .escalator-image img {
+        min-height: 280px;
+    }
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .why-card {
+        padding: 18px;
+    }
+    .contact-form {
+        padding: 22px;
+    }
     .client-logo {
-        height: 110px;
+        width: 130px;
+        height: 85px;
+        padding: 10px;
     }
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
     .whatsapp-float {
         left: 16px;
         bottom: 16px;
-        width: 56px;
-        height: 56px;
-        font-size: 29px;
+        width: 54px;
+        height: 54px;
+        font-size: 28px;
     }
 }
 
@@ -1256,35 +1450,37 @@ html[dir="ltr"] .contact-item {
         display: none;
     }
     .logo img {
-        width: 60px;
-        height: 56px;
+        width: 58px;
+        height: 55px;
     }
     .lang-switcher {
         padding: 0 10px;
         font-size: 11px;
         gap: 4px;
+        height: 38px;
     }
     .lang-switcher i {
-        font-size: 13px;
+        font-size: 12px;
     }
     .hero h1 {
-        font-size: 34px;
+        font-size: 30px;
     }
     .hero-card {
-        padding: 20px;
+        padding: 18px;
     }
     .section-heading h2,
     .about-content h2,
     .escalators-content h2,
     .contact-info h2,
     .parts h2 {
-        font-size: 26px;
+        font-size: 23px;
     }
-    .clients-grid {
-        grid-template-columns: 1fr;
+    .accordion-title {
+        font-size: 14px;
     }
     .client-logo {
-        height: 125px;
+        width: 110px;
+        height: 75px;
     }
 }
 
@@ -1302,4 +1498,7 @@ html[dir="ltr"] .contact-item {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-   }
+    .marquee-track {
+        animation: none !important;
+    }
+}
