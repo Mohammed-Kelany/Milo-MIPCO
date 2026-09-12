@@ -250,7 +250,7 @@ button {
 }
 
 /* =========================================================
-   6. MOBILE MENU BUTTON
+   6. MOBILE MENU BUTTON (مُحسّن للمس)
 ========================================================= */
 .menu-btn {
     display: none;
@@ -264,6 +264,25 @@ button {
     background: transparent;
     color: var(--white);
     font-size: 23px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.menu-btn:hover,
+.menu-btn:active {
+    background: rgba(199, 164, 90, 0.15);
+    border-color: var(--gold);
+}
+
+.menu-btn i {
+    pointer-events: none;
 }
 
 /* =========================================================
@@ -285,6 +304,8 @@ button {
     letter-spacing: 1px;
     flex-shrink: 0;
     transition: background var(--transition), color var(--transition), border-color var(--transition);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 .lang-switcher:hover {
     background: var(--gold);
@@ -293,6 +314,10 @@ button {
 }
 .lang-switcher i {
     font-size: 14px;
+    pointer-events: none;
+}
+.lang-switcher span {
+    pointer-events: none;
 }
 
 /* =========================================================
@@ -429,7 +454,7 @@ button {
 }
 
 /* =========================================================
-   11. HERO CARD
+   11. HERO CARD (بطاقة خدمات تفاعلية)
 ========================================================= */
 .hero-card {
     width: 100%;
@@ -451,22 +476,78 @@ button {
     color: var(--white);
     font-size: 20px;
 }
-.hero-service-list div {
+
+/* قائمة الخدمات كروابط تفاعلية */
+.hero-service-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-service-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 0;
+    padding: 12px 8px;
     color: #e3e8ee;
     font-size: 13px;
+    font-weight: 600;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 6px;
 }
-.hero-service-list div:last-child {
+
+.hero-service-item:last-child {
     border-bottom: none;
 }
-.hero-service-list span {
+
+.hero-service-item:hover,
+.hero-service-item:focus {
+    color: var(--gold-light);
+    background: rgba(199, 164, 90, 0.1);
+    padding-inline-start: 14px;
+    outline: none;
+}
+
+.hero-service-num {
     min-width: 28px;
     color: var(--gold-light);
     font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+.hero-service-text {
+    flex: 1;
+    transition: color 0.3s ease;
+}
+
+.hero-service-arrow {
+    font-size: 11px;
+    color: var(--gold);
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.hero-service-item:hover .hero-service-arrow,
+.hero-service-item:focus .hero-service-arrow {
+    opacity: 1;
+    transform: translateX(-4px);
+    color: var(--gold-light);
+}
+
+/* تعديل اتجاه السهم في الوضع الإنجليزي */
+html[dir="ltr"] .hero-service-arrow {
+    transform: rotate(180deg);
+}
+
+html[dir="ltr"] .hero-service-item:hover .hero-service-arrow,
+html[dir="ltr"] .hero-service-item:focus .hero-service-arrow {
+    transform: rotate(180deg) translateX(-4px);
 }
 
 /* =========================================================
@@ -554,131 +635,7 @@ button {
 }
 
 /* =========================================================
-   14. SERVICES ACCORDION
-========================================================= */
-.services {
-    background: var(--light);
-}
-
-.services-accordion {
-    max-width: 850px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.accordion-item {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: box-shadow var(--transition), border-color var(--transition);
-}
-
-.accordion-item:hover {
-    box-shadow: var(--shadow-sm);
-}
-
-.accordion-item.active {
-    border-color: var(--gold);
-    box-shadow: var(--shadow-sm);
-}
-
-.accordion-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 16px 20px;
-    border: none;
-    background: transparent;
-    text-align: right;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background var(--transition);
-}
-
-html[dir="ltr"] .accordion-header {
-    text-align: left;
-}
-
-.accordion-header:hover {
-    background: var(--light);
-}
-
-.accordion-icon {
-    width: 42px;
-    height: 42px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: var(--navy);
-    color: var(--gold-light);
-    font-size: 16px;
-    transition: background var(--transition);
-}
-
-.accordion-item.active .accordion-icon {
-    background: var(--gold);
-    color: var(--navy);
-}
-
-.accordion-title {
-    flex: 1;
-    color: var(--navy);
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.accordion-arrow {
-    color: var(--gold);
-    font-size: 13px;
-    transition: transform var(--transition);
-    flex-shrink: 0;
-}
-
-.accordion-item.active .accordion-arrow {
-    transform: rotate(180deg);
-}
-
-.accordion-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    padding: 0 20px;
-}
-
-.accordion-item.active .accordion-body {
-    max-height: 300px;
-    padding: 0 20px 18px;
-}
-
-.accordion-body p {
-    color: var(--gray);
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 12px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-}
-
-.accordion-link {
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 14px;
-    display: inline-block;
-    transition: color var(--transition);
-}
-
-.accordion-link:hover {
-    color: var(--gold-light);
-}
-
-/* =========================================================
-   15. PRODUCTS (SWIPER)
+   14. PRODUCTS (SWIPER)
 ========================================================= */
 .products {
     background: var(--white);
@@ -774,17 +731,19 @@ html[dir="ltr"] .accordion-header {
 }
 
 /* =========================================================
-   16. ESCALATORS
+   15. ESCALATORS
 ========================================================= */
 .escalators {
     background: var(--light);
 }
+
 .escalators-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 45px;
     align-items: center;
 }
+
 .escalators-content p {
     margin-bottom: 15px;
     color: var(--gray);
@@ -805,10 +764,11 @@ html[dir="ltr"] .accordion-header {
     width: 100%;
     min-height: 380px;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 /* =========================================================
-   17. WHY US
+   16. WHY US
 ========================================================= */
 .why-us {
     background: var(--navy);
@@ -850,7 +810,7 @@ html[dir="ltr"] .accordion-header {
 }
 
 /* =========================================================
-   18. SPARE PARTS
+   17. SPARE PARTS
 ========================================================= */
 .parts {
     background: linear-gradient(90deg, rgba(7, 26, 51, 0.95), rgba(7, 26, 51, 0.7)), url("../images/elevator-parts.jpg") center / cover no-repeat;
@@ -870,12 +830,13 @@ html[dir="ltr"] .accordion-header {
 }
 
 /* =========================================================
-   19. CONTACT
+   18. CONTACT
 ========================================================= */
 .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     gap: 50px;
+    align-items: flex-start;
 }
 .contact-info > p {
     margin-bottom: 20px;
@@ -903,9 +864,10 @@ html[dir="ltr"] .accordion-header {
 .contact-form {
     display: grid;
     gap: 14px;
-    padding: 28px;
+    padding: 30px;
     background: var(--light);
     border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 .form-group {
     display: flex;
@@ -972,7 +934,7 @@ html[dir="ltr"] .accordion-header {
 }
 
 /* =========================================================
-   20. CLIENTS (MARQUEE - حركة مستمرة)
+   19. CLIENTS (MARQUEE)
 ========================================================= */
 .clients {
     padding: 60px 0;
@@ -1038,7 +1000,7 @@ html[dir="ltr"] .marquee-track {
 }
 
 /* =========================================================
-   21. FOOTER
+   20. FOOTER
 ========================================================= */
 .footer {
     padding-top: 50px;
@@ -1119,7 +1081,7 @@ html[dir="ltr"] .marquee-track {
 }
 
 /* =========================================================
-   22. WHATSAPP BUTTON
+   21. WHATSAPP BUTTON
 ========================================================= */
 .whatsapp-float {
     position: fixed;
@@ -1161,7 +1123,7 @@ html[dir="ltr"] .marquee-track {
 }
 
 /* =========================================================
-   23. LTR OVERRIDES (ENGLISH)
+   22. LTR OVERRIDES (ENGLISH)
 ========================================================= */
 html[dir="ltr"] .navbar > a::after {
     right: auto;
@@ -1186,7 +1148,7 @@ html[dir="ltr"] .contact-item {
 }
 
 /* =========================================================
-   24. TABLET
+   23. TABLET
 ========================================================= */
 @media (max-width: 1000px) {
     :root {
@@ -1285,7 +1247,7 @@ html[dir="ltr"] .contact-item {
 }
 
 /* =========================================================
-   25. MOBILE
+   24. MOBILE
 ========================================================= */
 @media (max-width: 700px) {
     :root {
@@ -1356,9 +1318,14 @@ html[dir="ltr"] .contact-item {
     .hero-card h3 {
         font-size: 18px;
     }
-    .hero-service-list div {
+    .hero-service-item {
         font-size: 12px;
-        padding: 8px 0;
+        padding: 10px 6px;
+        gap: 10px;
+    }
+    .hero-service-num {
+        font-size: 12px;
+        min-width: 24px;
     }
     .section {
         padding: 45px 0;
@@ -1382,24 +1349,6 @@ html[dir="ltr"] .contact-item {
     }
     .about-features {
         gap: 20px;
-    }
-    .accordion-header {
-        padding: 14px 16px;
-        gap: 12px;
-    }
-    .accordion-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 15px;
-    }
-    .accordion-title {
-        font-size: 15px;
-    }
-    .accordion-body {
-        padding: 0 16px;
-    }
-    .accordion-item.active .accordion-body {
-        padding: 0 16px 16px;
     }
     .products-swiper {
         padding: 0 0 45px;
@@ -1443,7 +1392,7 @@ html[dir="ltr"] .contact-item {
 }
 
 /* =========================================================
-   26. SMALL MOBILE
+   25. SMALL MOBILE
 ========================================================= */
 @media (max-width: 450px) {
     .logo-text {
@@ -1468,15 +1417,16 @@ html[dir="ltr"] .contact-item {
     .hero-card {
         padding: 18px;
     }
+    .hero-service-item {
+        font-size: 11px;
+        padding: 9px 5px;
+    }
     .section-heading h2,
     .about-content h2,
     .escalators-content h2,
     .contact-info h2,
     .parts h2 {
         font-size: 23px;
-    }
-    .accordion-title {
-        font-size: 14px;
     }
     .client-logo {
         width: 110px;
@@ -1485,7 +1435,7 @@ html[dir="ltr"] .contact-item {
 }
 
 /* =========================================================
-   27. REDUCED MOTION
+   26. REDUCED MOTION
 ========================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
