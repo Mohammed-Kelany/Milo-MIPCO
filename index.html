@@ -13,6 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <link rel="stylesheet" href="css/style.css">
 
     <meta property="og:title" content="MIPCO | حلول المصاعد والسلالم الكهربائية">
@@ -28,7 +32,6 @@
 ========================================================= -->
 <header class="header" id="header">
     <div class="container nav-container">
-        <!-- LOGO -->
         <a href="#home" class="logo" aria-label="MIPCO">
             <img src="images/logo.png" alt="MIPCO Logo" loading="lazy">
             <div class="logo-text">
@@ -37,7 +40,6 @@
             </div>
         </a>
 
-        <!-- NAVIGATION -->
         <nav class="navbar" id="navbar" aria-label="Main Navigation">
             <a href="#home" data-i18n="nav_home">الرئيسية</a>
             <a href="#about" data-i18n="nav_about">من نحن</a>
@@ -61,16 +63,13 @@
             <a href="#contact" data-i18n="nav_contact">اتصل بنا</a>
         </nav>
 
-        <!-- QUOTE BUTTON -->
         <a href="#contact" class="btn btn-gold nav-quote-btn" data-i18n="btn_quote">اطلب عرض سعر</a>
 
-        <!-- LANGUAGE SWITCHER -->
         <button class="lang-switcher" id="langSwitcher" type="button" aria-label="تبديل اللغة">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <span id="langLabel">EN</span>
         </button>
 
-        <!-- MOBILE MENU BUTTON -->
         <button class="menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navbar">
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
@@ -138,7 +137,7 @@
 </section>
 
 <!-- =========================================================
-     SERVICES
+     SERVICES (ACCORDION)
 ========================================================= -->
 <section class="section services" id="services">
     <div class="container">
@@ -147,49 +146,85 @@
             <h2 data-i18n="services_title">حلول متكاملة للمصاعد</h2>
             <p data-i18n="services_desc">نقدم مجموعة متكاملة من الخدمات لتلبية احتياجات المشاريع المختلفة.</p>
         </div>
-        <div class="services-grid">
-            <article class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-elevator" aria-hidden="true"></i></div>
-                <h3 data-i18n="service_1_title">توريد وتركيب المصاعد</h3>
-                <p data-i18n="service_1_desc">توريد وتركيب جميع أنواع المصاعد للمباني السكنية والتجارية والإدارية.</p>
-                <a href="#contact"><span data-i18n="btn_request_service">طلب الخدمة</span> ←</a>
-            </article>
-            <article class="service-card service-highlight">
-                <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></div>
-                <h3 data-i18n="service_2_title">صيانة المصاعد</h3>
-                <p data-i18n="service_2_desc">برامج صيانة دورية واحترافية لضمان أفضل أداء للمصاعد.</p>
-                <a href="#contact"><span data-i18n="btn_request_service">طلب الخدمة</span> ←</a>
-            </article>
-            <article class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
-                <h3 data-i18n="service_3_title">تحديث وتطوير المصاعد</h3>
-                <p data-i18n="service_3_desc">تطوير الأنظمة القديمة وتحسين مستوى الأداء والأمان.</p>
-                <a href="#contact"><span data-i18n="btn_request_service">طلب الخدمة</span> ←</a>
-            </article>
-            <article class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-toolbox" aria-hidden="true"></i></div>
-                <h3 data-i18n="service_4_title">توريد قطع الغيار</h3>
-                <p data-i18n="service_4_desc">توفير قطع غيار ومكونات عالية الجودة لمختلف أنواع المصاعد.</p>
-                <a href="#parts"><span data-i18n="btn_see_more">عرض المزيد</span> ←</a>
-            </article>
-            <article class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
-                <h3 data-i18n="service_5_title">الدعم الفني</h3>
-                <p data-i18n="service_5_desc">فريق فني متخصص للمساعدة في عمليات الفحص والصيانة.</p>
-                <a href="#contact"><span data-i18n="btn_contact">تواصل معنا</span> ←</a>
-            </article>
-            <article class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-stairs" aria-hidden="true"></i></div>
-                <h3 data-i18n="service_6_title">السلالم الكهربائية</h3>
-                <p data-i18n="service_6_desc">توريد وتركيب وصيانة السلالم الكهربائية والممرات المتحركة.</p>
-                <a href="#escalators"><span data-i18n="btn_explore">اكتشف المزيد</span> ←</a>
-            </article>
+
+        <div class="services-accordion">
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span class="accordion-icon"><i class="fa-solid fa-elevator" aria-hidden="true"></i></span>
+                    <span class="accordion-title" data-i18n="service_1_title">توريد وتركيب المصاعد</span>
+                    <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+                </button>
+                <div class="accordion-body">
+                    <p data-i18n="service_1_desc">توريد وتركيب جميع أنواع المصاعد للمباني السكنية والتجارية والإدارية.</p>
+                    <a href="#contact" class="accordion-link"><span data-i18n="btn_request_service">طلب الخدمة</span> ←</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span class="accordion-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
+                    <span class="accordion-title" data-i18n="service_2_title">صيانة المصاعد</span>
+                    <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+                </button>
+                <div class="accordion-body">
+                    <p data-i18n="service_2_desc">برامج صيانة دورية واحترافية لضمان أفضل أداء للمصاعد.</p>
+                    <a href="#contact" class="accordion-link"><span data-i18n="btn_request_service">طلب الخدمة</span> ←</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span class="accordion-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></span>
+                    <span class="accordion-title" data-i18n="service_3_title">تحديث وتطوير المصاعد</span>
+                    <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+                </button>
+                <div class="accordion-body">
+                    <p data-i18n="service_3_desc">تطوير الأنظمة القديمة وتحسين مستوى الأداء والأمان.</p>
+                    <a href="#contact" class="accordion-link"><span data-i18n="btn_request_service">طلب الخدمة</span> ←</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span class="accordion-icon"><i class="fa-solid fa-toolbox" aria-hidden="true"></i></span>
+                    <span class="accordion-title" data-i18n="service_4_title">توريد قطع الغيار</span>
+                    <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+                </button>
+                <div class="accordion-body">
+                    <p data-i18n="service_4_desc">توفير قطع غيار ومكونات عالية الجودة لمختلف أنواع المصاعد.</p>
+                    <a href="#parts" class="accordion-link"><span data-i18n="btn_see_more">عرض المزيد</span> ←</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span class="accordion-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+                    <span class="accordion-title" data-i18n="service_5_title">الدعم الفني</span>
+                    <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+                </button>
+                <div class="accordion-body">
+                    <p data-i18n="service_5_desc">فريق فني متخصص للمساعدة في عمليات الفحص والصيانة.</p>
+                    <a href="#contact" class="accordion-link"><span data-i18n="btn_contact">تواصل معنا</span> ←</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span class="accordion-icon"><i class="fa-solid fa-stairs" aria-hidden="true"></i></span>
+                    <span class="accordion-title" data-i18n="service_6_title">السلالم الكهربائية</span>
+                    <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+                </button>
+                <div class="accordion-body">
+                    <p data-i18n="service_6_desc">توريد وتركيب وصيانة السلالم الكهربائية والممرات المتحركة.</p>
+                    <a href="#escalators" class="accordion-link"><span data-i18n="btn_explore">اكتشف المزيد</span> ←</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- =========================================================
-     PRODUCTS
+     PRODUCTS (SWIPER)
 ========================================================= -->
 <section class="section products" id="products">
     <div class="container">
@@ -198,27 +233,41 @@
             <h2 data-i18n="products_title">حلول المصاعد لجميع أنواع المباني</h2>
             <p data-i18n="products_desc">مجموعة متنوعة من المصاعد المصممة لتناسب مختلف الاحتياجات.</p>
         </div>
-        <div class="products-grid">
-            <article class="product-card">
-                <div class="product-image"><img src="images/product-1.jpg" alt="Passenger Elevators" loading="lazy"></div>
-                <h3 data-i18n="product_1_title">مصاعد الركاب</h3>
-                <p data-i18n="product_1_desc">حلول مريحة وآمنة للمباني السكنية والتجارية.</p>
-            </article>
-            <article class="product-card">
-                <div class="product-image"><img src="images/product-2.jpg" alt="Panoramic Elevators" loading="lazy"></div>
-                <h3 data-i18n="product_2_title">المصاعد البانورامية</h3>
-                <p data-i18n="product_2_desc">تصميم عصري ومظهر مميز للمباني والفنادق.</p>
-            </article>
-            <article class="product-card">
-                <div class="product-image"><img src="images/product-3.jpg" alt="Freight Elevators" loading="lazy"></div>
-                <h3 data-i18n="product_3_title">مصاعد البضائع</h3>
-                <p data-i18n="product_3_desc">حلول قوية لنقل البضائع والأحمال المختلفة.</p>
-            </article>
-            <article class="product-card">
-                <div class="product-image"><img src="images/product-4.jpg" alt="Hospital Elevators" loading="lazy"></div>
-                <h3 data-i18n="product_4_title">مصاعد المستشفيات</h3>
-                <p data-i18n="product_4_desc">مصاعد مخصصة للمنشآت الطبية والمستشفيات.</p>
-            </article>
+
+        <div class="swiper products-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-image"><img src="images/product-1.jpg" alt="Passenger Elevators" loading="lazy"></div>
+                        <h3 data-i18n="product_1_title">مصاعد الركاب</h3>
+                        <p data-i18n="product_1_desc">حلول مريحة وآمنة للمباني السكنية والتجارية.</p>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-image"><img src="images/product-2.jpg" alt="Panoramic Elevators" loading="lazy"></div>
+                        <h3 data-i18n="product_2_title">المصاعد البانورامية</h3>
+                        <p data-i18n="product_2_desc">تصميم عصري ومظهر مميز للمباني والفنادق.</p>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-image"><img src="images/product-3.jpg" alt="Freight Elevators" loading="lazy"></div>
+                        <h3 data-i18n="product_3_title">مصاعد البضائع</h3>
+                        <p data-i18n="product_3_desc">حلول قوية لنقل البضائع والأحمال المختلفة.</p>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-image"><img src="images/product-4.jpg" alt="Hospital Elevators" loading="lazy"></div>
+                        <h3 data-i18n="product_4_title">مصاعد المستشفيات</h3>
+                        <p data-i18n="product_4_desc">مصاعد مخصصة للمنشآت الطبية والمستشفيات.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </section>
@@ -333,7 +382,7 @@
 </section>
 
 <!-- =========================================================
-     CLIENTS
+     CLIENTS (MARQUEE - حركة مستمرة)
 ========================================================= -->
 <section class="section clients" id="clients">
     <div class="container">
@@ -342,7 +391,11 @@
             <h2 data-i18n="clients_title">نفخر بثقة عملائنا</h2>
             <p data-i18n="clients_desc">نفخر بالتعاون مع مجموعة من العملاء والشركات ونحرص دائمًا على تقديم أفضل حلول المصاعد والسلالم الكهربائية.</p>
         </div>
-        <div class="clients-grid">
+    </div>
+
+    <div class="clients-marquee">
+        <div class="marquee-track">
+            <!-- المجموعة الأصلية (10 شعارات) -->
             <div class="client-logo"><img src="images/client-1.jpg" alt="Client 1" loading="lazy"></div>
             <div class="client-logo"><img src="images/client-2.jpg" alt="Client 2" loading="lazy"></div>
             <div class="client-logo"><img src="images/client-3.jpg" alt="Client 3" loading="lazy"></div>
@@ -351,6 +404,20 @@
             <div class="client-logo"><img src="images/client-6.jpg" alt="Client 6" loading="lazy"></div>
             <div class="client-logo"><img src="images/client-7.jpg" alt="Client 7" loading="lazy"></div>
             <div class="client-logo"><img src="images/client-8.jpg" alt="Client 8" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-9.jpg" alt="Client 9" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-10.jpg" alt="Client 10" loading="lazy"></div>
+
+            <!-- نسخة مكررة للحركة المستمرة (نفس الـ 10) -->
+            <div class="client-logo"><img src="images/client-1.jpg" alt="Client 1" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-2.jpg" alt="Client 2" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-3.jpg" alt="Client 3" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-4.jpg" alt="Client 4" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-5.jpg" alt="Client 5" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-6.jpg" alt="Client 6" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-7.jpg" alt="Client 7" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-8.jpg" alt="Client 8" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-9.jpg" alt="Client 9" loading="lazy"></div>
+            <div class="client-logo"><img src="images/client-10.jpg" alt="Client 10" loading="lazy"></div>
         </div>
     </div>
 </section>
@@ -365,9 +432,24 @@
             <p>MILO ELEVATOR PLANT</p>
             <p data-i18n="footer_about">حلول متكاملة في مجال المصاعد والسلالم الكهربائية.</p>
             <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
         <div>
@@ -398,6 +480,9 @@
 <a href="https://wa.me/201289992138" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
 </a>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
 <script src="js/script.js" defer></script>
 </body>
