@@ -67,18 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
             services_label: "خدماتنا",
             services_title: "حلول متكاملة للمصاعد",
             services_desc: "نقدم مجموعة متكاملة من الخدمات لتلبية احتياجات المشاريع المختلفة.",
-            service_1_title: "توريد وتركيب المصاعد",
-            service_1_desc: "توريد وتركيب جميع أنواع المصاعد للمباني السكنية والتجارية والإدارية.",
-            service_2_title: "صيانة المصاعد",
-            service_2_desc: "برامج صيانة دورية واحترافية لضمان أفضل أداء للمصاعد.",
-            service_3_title: "تحديث وتطوير المصاعد",
-            service_3_desc: "تطوير الأنظمة القديمة وتحسين مستوى الأداء والأمان.",
-            service_4_title: "توريد قطع الغيار",
-            service_4_desc: "توفير قطع غيار ومكونات عالية الجودة لمختلف أنواع المصاعد.",
-            service_5_title: "الدعم الفني",
-            service_5_desc: "فريق فني متخصص للمساعدة في عمليات الفحص والصيانة.",
-            service_6_title: "السلالم الكهربائية",
-            service_6_desc: "توريد وتركيب وصيانة السلالم الكهربائية والممرات المتحركة.",
             products_label: "منتجاتنا",
             products_title: "حلول المصاعد لجميع أنواع المباني",
             products_desc: "مجموعة متنوعة من المصاعد المصممة لتناسب مختلف الاحتياجات.",
@@ -186,18 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
             services_label: "Our Services",
             services_title: "Complete Elevator Solutions",
             services_desc: "We offer a comprehensive range of services to meet the needs of various projects.",
-            service_1_title: "Elevator Supply & Installation",
-            service_1_desc: "Supplying and installing all types of elevators for residential, commercial, and administrative buildings.",
-            service_2_title: "Elevator Maintenance",
-            service_2_desc: "Professional periodic maintenance programs to ensure optimal elevator performance.",
-            service_3_title: "Elevator Modernization",
-            service_3_desc: "Upgrading old systems and improving performance and safety levels.",
-            service_4_title: "Spare Parts Supply",
-            service_4_desc: "Providing high-quality spare parts and components for all types of elevators.",
-            service_5_title: "Technical Support",
-            service_5_desc: "A specialized technical team to assist with inspection and maintenance operations.",
-            service_6_title: "Escalators",
-            service_6_desc: "Supply, installation, and maintenance of escalators and moving walkways.",
             products_label: "Our Products",
             products_title: "Elevator Solutions for All Building Types",
             products_desc: "A variety of elevators designed to suit different needs.",
@@ -332,6 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // تطبيق اللغة المحفوظة عند التحميل
     applyLanguage(currentLang);
 
     /* =====================================================
@@ -365,7 +342,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // دعم النقر العادي
         menuBtn.addEventListener("click", function (e) {
-            // منع التنفيذ المزدوج على الأجهزة اللمسية
             const now = Date.now();
             if (now - lastTouchTime < 500) return;
             toggleMenu(e);
@@ -475,10 +451,12 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
     if (typeof Swiper !== "undefined") {
         new Swiper(".products-swiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
+            slidesPerView: 1.15,
+            spaceBetween: 15,
+            centeredSlides: false,
             loop: true,
             grabCursor: true,
+            watchSlidesProgress: true,
             pagination: {
                 el: ".products-swiper .swiper-pagination",
                 clickable: true,
@@ -488,13 +466,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 prevEl: ".products-swiper .swiper-button-prev",
             },
             breakpoints: {
+                500: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 15,
+                },
                 700: {
                     slidesPerView: 2,
-                    spaceBetween: 20,
+                    spaceBetween: 18,
                 },
                 1000: {
                     slidesPerView: 3,
-                    spaceBetween: 22,
+                    spaceBetween: 20,
                 },
                 1180: {
                     slidesPerView: 4,
