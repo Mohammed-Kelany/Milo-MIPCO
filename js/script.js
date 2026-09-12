@@ -1,7 +1,13 @@
 /* =========================================================
    MIPCO - MAIN JAVASCRIPT
-   الوظائف: قائمة الجوال، القائمة المنسدلة، تأثير التمرير،
-   إغلاق القوائم، إرسال النموذج إلى واتساب، وتبديل اللغة
+   الوظائف:
+   - قائمة الجوال
+   - القائمة المنسدلة
+   - تأثير التمرير على الهيدر
+   - Accordion للخدمات
+   - Swiper للمنتجات
+   - نموذج الاتصال (واتساب)
+   - تبديل اللغة (AR / EN)
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -19,10 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const langLabel = document.getElementById("langLabel");
 
     /* =====================================================
-       الترجمات
+       الترجمات (AR / EN)
     ===================================================== */
     const translations = {
         ar: {
+            /* Navigation */
             nav_home: "الرئيسية",
             nav_about: "من نحن",
             nav_services: "خدماتنا",
@@ -34,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
             nav_service_modernize: "تحديث وتطوير المصاعد",
             nav_service_spare_parts: "توريد قطع الغيار",
             nav_service_escalators: "السلالم الكهربائية",
+
+            /* Buttons */
             btn_quote: "اطلب عرض سعر",
             btn_discover: "اكتشف خدماتنا",
             btn_contact: "تواصل معنا",
@@ -42,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
             btn_explore: "اكتشف المزيد",
             btn_consult: "طلب استشارة",
             btn_spare_parts: "طلب قطع غيار",
+
+            /* Hero */
             hero_small: "MIPCO ELEVATOR SOLUTIONS",
             hero_title_1: "حلول متكاملة لعالم",
             hero_title_2: "المصاعد الحديثة",
@@ -52,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
             hero_service_2: "صيانة وتحديث المصاعد",
             hero_service_3: "توريد قطع الغيار",
             hero_service_4: "السلالم الكهربائية",
+
+            /* About */
             about_label: "من نحن",
             about_title: "خبرة وحلول متطورة في عالم المصاعد",
             about_p1: "MIPCO - MILO ELEVATOR PLANT تقدم حلولاً متكاملة في مجال المصاعد، بداية من التوريد والتركيب وحتى الصيانة والتحديث وتوفير قطع الغيار.",
@@ -59,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
             about_stat_1: "سنوات من الخبرة",
             about_stat_2: "مشروع ناجح",
             about_stat_3: "دعم فني",
+
+            /* Services */
             services_label: "خدماتنا",
             services_title: "حلول متكاملة للمصاعد",
             services_desc: "نقدم مجموعة متكاملة من الخدمات لتلبية احتياجات المشاريع المختلفة.",
@@ -74,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
             service_5_desc: "فريق فني متخصص للمساعدة في عمليات الفحص والصيانة.",
             service_6_title: "السلالم الكهربائية",
             service_6_desc: "توريد وتركيب وصيانة السلالم الكهربائية والممرات المتحركة.",
+
+            /* Products */
             products_label: "منتجاتنا",
             products_title: "حلول المصاعد لجميع أنواع المباني",
             products_desc: "مجموعة متنوعة من المصاعد المصممة لتناسب مختلف الاحتياجات.",
@@ -85,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
             product_3_desc: "حلول قوية لنقل البضائع والأحمال المختلفة.",
             product_4_title: "مصاعد المستشفيات",
             product_4_desc: "مصاعد مخصصة للمنشآت الطبية والمستشفيات.",
+
+            /* Escalators */
             escalators_label: "السلالم الكهربائية",
             escalators_title: "حلول حركة متطورة للمباني الكبيرة",
             escalators_desc: "نوفر حلولاً متكاملة لتوريد وتركيب وصيانة السلالم الكهربائية والممرات المتحركة بأعلى معايير الجودة والسلامة.",
@@ -92,6 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
             escalator_li_2: "تركيب وتشغيل الأنظمة",
             escalator_li_3: "الصيانة الدورية",
             escalator_li_4: "توفير قطع الغيار",
+
+            /* Why Us */
             why_label: "لماذا MIPCO",
             why_title: "الجودة والسلامة أولويتنا",
             why_desc: "نعمل على تقديم حلول موثوقة تناسب احتياجات عملائنا.",
@@ -103,9 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
             why_3_desc: "فريق متخصص في أنظمة المصاعد.",
             why_4_title: "الدعم",
             why_4_desc: "خدمات دعم وصيانة مستمرة للعملاء.",
+
+            /* Spare Parts */
             parts_label: "قطع الغيار",
             parts_title: "قطع غيار عالية الجودة",
             parts_desc: "نوفر مجموعة واسعة من قطع الغيار والمكونات اللازمة لصيانة وتشغيل مختلف أنواع المصاعد.",
+
+            /* Contact */
             contact_label: "تواصل معنا",
             contact_title: "نحن جاهزون لخدمتكم",
             contact_desc: "يمكنك التواصل معنا للحصول على عرض سعر أو استشارة.",
@@ -113,6 +138,8 @@ document.addEventListener("DOMContentLoaded", function () {
             contact_email: "البريد الإلكتروني",
             contact_address: "العنوان",
             contact_address_value: "مصر",
+
+            /* Form */
             form_name: "الاسم بالكامل",
             form_phone: "رقم الهاتف",
             form_service: "اختر الخدمة المطلوبة",
@@ -123,9 +150,13 @@ document.addEventListener("DOMContentLoaded", function () {
             form_service_5: "قطع الغيار",
             form_message: "اكتب تفاصيل طلبك",
             form_submit: "إرسال طلب عرض سعر",
+
+            /* Clients */
             clients_label: "عملاؤنا",
             clients_title: "نفخر بثقة عملائنا",
             clients_desc: "نفخر بالتعاون مع مجموعة من العملاء والشركات ونحرص دائمًا على تقديم أفضل حلول المصاعد والسلالم الكهربائية.",
+
+            /* Footer */
             footer_about: "حلول متكاملة في مجال المصاعد والسلالم الكهربائية.",
             footer_quick: "روابط سريعة",
             footer_services: "خدماتنا",
@@ -133,6 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
             footer_service_4: "الصيانة",
             footer_contact: "تواصل معنا",
             copyright: "© 2026 MIPCO - MILO ELEVATOR PLANT جميع الحقوق محفوظة.",
+
+            /* WhatsApp message */
             form_success: "تم تجهيز طلبك، سيتم فتح واتساب لإرساله.",
             form_error: "يرجى ملء الحقول المطلوبة: الاسم، الهاتف، الخدمة",
             whatsapp_label: "طلب عرض سعر جديد",
@@ -142,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
             whatsapp_details: "التفاصيل"
         },
         en: {
+            /* Navigation */
             nav_home: "Home",
             nav_about: "About Us",
             nav_services: "Services",
@@ -153,6 +187,8 @@ document.addEventListener("DOMContentLoaded", function () {
             nav_service_modernize: "Elevator Modernization",
             nav_service_spare_parts: "Spare Parts Supply",
             nav_service_escalators: "Escalators",
+
+            /* Buttons */
             btn_quote: "Request a Quote",
             btn_discover: "Discover Our Services",
             btn_contact: "Contact Us",
@@ -161,6 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
             btn_explore: "Explore More",
             btn_consult: "Request Consultation",
             btn_spare_parts: "Request Spare Parts",
+
+            /* Hero */
             hero_small: "MIPCO ELEVATOR SOLUTIONS",
             hero_title_1: "Integrated Solutions for",
             hero_title_2: "Modern Elevators",
@@ -171,6 +209,8 @@ document.addEventListener("DOMContentLoaded", function () {
             hero_service_2: "Maintenance & Modernization",
             hero_service_3: "Spare Parts Supply",
             hero_service_4: "Escalators",
+
+            /* About */
             about_label: "About Us",
             about_title: "Experience & Advanced Solutions in Elevators",
             about_p1: "MIPCO - MILO ELEVATOR PLANT provides integrated solutions in the elevator field, from supply and installation to maintenance, modernization, and spare parts supply.",
@@ -178,6 +218,8 @@ document.addEventListener("DOMContentLoaded", function () {
             about_stat_1: "Years of Experience",
             about_stat_2: "Successful Projects",
             about_stat_3: "Technical Support",
+
+            /* Services */
             services_label: "Our Services",
             services_title: "Complete Elevator Solutions",
             services_desc: "We offer a comprehensive range of services to meet the needs of various projects.",
@@ -193,6 +235,8 @@ document.addEventListener("DOMContentLoaded", function () {
             service_5_desc: "A specialized technical team to assist with inspection and maintenance operations.",
             service_6_title: "Escalators",
             service_6_desc: "Supply, installation, and maintenance of escalators and moving walkways.",
+
+            /* Products */
             products_label: "Our Products",
             products_title: "Elevator Solutions for All Building Types",
             products_desc: "A variety of elevators designed to suit different needs.",
@@ -204,6 +248,8 @@ document.addEventListener("DOMContentLoaded", function () {
             product_3_desc: "Strong solutions for transporting goods and various loads.",
             product_4_title: "Hospital Elevators",
             product_4_desc: "Elevators dedicated to medical facilities and hospitals.",
+
+            /* Escalators */
             escalators_label: "Escalators",
             escalators_title: "Advanced Mobility Solutions for Large Buildings",
             escalators_desc: "We provide integrated solutions for supplying, installing, and maintaining escalators and moving walkways with the highest quality and safety standards.",
@@ -211,6 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
             escalator_li_2: "Installation & Operation",
             escalator_li_3: "Periodic Maintenance",
             escalator_li_4: "Spare Parts Supply",
+
+            /* Why Us */
             why_label: "Why MIPCO",
             why_title: "Quality & Safety Are Our Priority",
             why_desc: "We work to provide reliable solutions that suit our clients' needs.",
@@ -222,9 +270,13 @@ document.addEventListener("DOMContentLoaded", function () {
             why_3_desc: "A specialized team in elevator systems.",
             why_4_title: "Support",
             why_4_desc: "Continuous support and maintenance services for clients.",
+
+            /* Spare Parts */
             parts_label: "Spare Parts",
             parts_title: "High-Quality Spare Parts",
             parts_desc: "We provide a wide range of spare parts and components needed for the maintenance and operation of various types of elevators.",
+
+            /* Contact */
             contact_label: "Contact Us",
             contact_title: "We Are Ready to Serve You",
             contact_desc: "You can contact us to get a quote or consultation.",
@@ -232,6 +284,8 @@ document.addEventListener("DOMContentLoaded", function () {
             contact_email: "Email",
             contact_address: "Address",
             contact_address_value: "Egypt",
+
+            /* Form */
             form_name: "Full Name",
             form_phone: "Phone Number",
             form_service: "Select the required service",
@@ -242,9 +296,13 @@ document.addEventListener("DOMContentLoaded", function () {
             form_service_5: "Spare Parts",
             form_message: "Write your request details",
             form_submit: "Send Quote Request",
+
+            /* Clients */
             clients_label: "Our Clients",
             clients_title: "We Are Proud of Our Clients' Trust",
             clients_desc: "We are proud to cooperate with a group of clients and companies and always strive to provide the best elevator and escalator solutions.",
+
+            /* Footer */
             footer_about: "Integrated solutions in the field of elevators and escalators.",
             footer_quick: "Quick Links",
             footer_services: "Our Services",
@@ -252,6 +310,8 @@ document.addEventListener("DOMContentLoaded", function () {
             footer_service_4: "Maintenance",
             footer_contact: "Contact Us",
             copyright: "© 2026 MIPCO - MILO ELEVATOR PLANT. All rights reserved.",
+
+            /* WhatsApp message */
             form_success: "Your request is ready. WhatsApp will open to send it.",
             form_error: "Please fill in the required fields: Name, Phone, Service",
             whatsapp_label: "New Quote Request",
@@ -275,7 +335,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const t = translations[lang];
         if (!t) return;
 
-        // تغيير lang و dir في الـ html فقط (بدون لمس body)
         document.documentElement.setAttribute("lang", lang);
         document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
 
@@ -398,6 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // إغلاق القائمة المنسدلة عند النقر خارجها
     document.addEventListener("click", function (event) {
         dropdowns.forEach(function (dropdown) {
             if (!dropdown.contains(event.target)) {
@@ -445,6 +505,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", handleHeaderScroll);
     handleHeaderScroll();
+
+    /* =====================================================
+       ACCORDION - قسم الخدمات
+    ===================================================== */
+    const accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach(function (item) {
+        const header = item.querySelector(".accordion-header");
+        if (!header) return;
+
+        header.addEventListener("click", function () {
+            const isActive = item.classList.contains("active");
+
+            // إغلاق كل العناصر الأخرى (واحد فقط يبقى مفتوح)
+            accordionItems.forEach(function (other) {
+                if (other !== item) {
+                    other.classList.remove("active");
+                    const otherHeader = other.querySelector(".accordion-header");
+                    if (otherHeader) otherHeader.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            // تبديل الحالة
+            item.classList.toggle("active");
+            header.setAttribute("aria-expanded", !isActive);
+        });
+    });
+
+    /* =====================================================
+       SWIPER - قسم المنتجات
+    ===================================================== */
+    if (typeof Swiper !== "undefined") {
+        new Swiper(".products-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            grabCursor: true,
+            pagination: {
+                el: ".products-swiper .swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".products-swiper .swiper-button-next",
+                prevEl: ".products-swiper .swiper-button-prev",
+            },
+            breakpoints: {
+                700: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1000: {
+                    slidesPerView: 3,
+                    spaceBetween: 22,
+                },
+                1180: {
+                    slidesPerView: 4,
+                    spaceBetween: 22,
+                },
+            },
+        });
+    }
 
     /* =====================================================
        نموذج الاتصال - الإرسال إلى واتساب
