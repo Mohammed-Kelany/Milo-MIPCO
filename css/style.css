@@ -61,7 +61,6 @@ img {
 }
 
 a { text-decoration: none; color: inherit; }
-
 button, input, select, textarea { font-family: inherit; }
 button { cursor: pointer; }
 
@@ -174,29 +173,56 @@ button { cursor: pointer; }
 
 /* =========================================================
    6. MOBILE MENU BUTTON
+   (مخفي على الديسكتوب - يظهر فقط على الموبايل والتابلت)
 ========================================================= */
+
+/* الحالة الافتراضية: مخفي */
 .menu-btn {
     display: none;
-    width: 45px; height: 45px;
-    align-items: center; justify-content: center;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px; background: transparent;
-    color: var(--white); font-size: 23px;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--white);
+    font-size: 23px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    user-select: none; -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
     pointer-events: auto;
-    position: relative; z-index: 10;
-    transition: background var(--transition), border-color var(--transition);
+    position: relative;
+    z-index: 10;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
+
 .menu-btn:hover,
 .menu-btn:active {
     background: rgba(199, 164, 90, 0.15);
     border-color: var(--gold);
 }
-.menu-btn i { pointer-events: none; }
+
+.menu-btn i {
+    pointer-events: none;
+}
+
+/* إظهار الزر فقط على الشاشات ≤ 1000px */
+@media (max-width: 1000px) {
+    .menu-btn {
+        display: flex;
+    }
+}
+
+/* إخفاء إجباري على الشاشات > 1000px */
+@media (min-width: 1001px) {
+    .menu-btn {
+        display: none !important;
+    }
+}
 
 /* =========================================================
    7. LANGUAGE SWITCHER
@@ -306,9 +332,7 @@ button { cursor: pointer; }
     max-width: 600px; margin-bottom: 22px;
     color: #e3e8ed; font-size: 16px; line-height: 1.9;
 }
-.hero-buttons {
-    display: flex; flex-wrap: wrap; gap: 12px;
-}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* =========================================================
    11. HERO CARD (تفاعلية)
@@ -352,9 +376,8 @@ button { cursor: pointer; }
     color: var(--gold-light);
     font-weight: 800; font-size: 13px;
     flex-shrink: 0;
-    transition: color 0.3s ease;
 }
-.hero-service-text { flex: 1; transition: color 0.3s ease; }
+.hero-service-text { flex: 1; }
 .hero-service-arrow {
     font-size: 11px; color: var(--gold);
     opacity: 0.5;
@@ -448,7 +471,6 @@ html[dir="ltr"] .hero-service-item:focus .hero-service-arrow {
 .products-swiper .swiper-pagination { bottom: 0 !important; }
 .products-swiper .swiper-pagination-bullet {
     background: var(--gray); opacity: 0.4;
-    transition: opacity var(--transition);
 }
 .products-swiper .swiper-pagination-bullet-active {
     background: var(--gold); opacity: 1;
@@ -787,15 +809,23 @@ html[dir="ltr"] .hero h1 span { display: inline; }
 html[dir="ltr"] .contact-item { align-items: flex-start; }
 
 /* =========================================================
-   23. TABLET
+   23. TABLET (≤ 1000px)
 ========================================================= */
 @media (max-width: 1000px) {
     :root { --header-height: 76px; }
-    .menu-btn { display: flex; }
+
+    /* زر القائمة يظهر هنا */
+    .menu-btn {
+        display: flex;
+    }
+
     .nav-quote-btn { display: none; }
+
     .lang-switcher {
         height: 40px; padding: 0 12px; font-size: 12px;
     }
+
+    /* قائمة الجوال */
     .navbar {
         position: absolute;
         top: 100%; right: 0; left: 0;
@@ -825,9 +855,9 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
         transform: none; box-shadow: none;
     }
     .nav-dropdown.active .dropdown-menu { display: block; }
-    .hero { min-height: auto; }
 
-    /* الهيرو: النص + البطاقة جنب بعض */
+    /* Hero: جنب بعض */
+    .hero { min-height: auto; }
     .hero-content {
         grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
         gap: 25px;
@@ -835,36 +865,43 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     }
     .hero-card { max-width: none; }
 
-    /* السلالم: النص + الصورة جنب بعض */
-    .escalators-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-        align-items: center;
-    }
+    /* About */
     .about-grid {
         grid-template-columns: 1fr;
         gap: 35px;
     }
     .about-image,
     .image-placeholder { min-height: 330px; }
-    .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .footer-grid { grid-template-columns: repeat(2, 1fr); }
 
-    /* التواصل: النص + النموذج جنب بعض */
+    /* Escalators: جنب بعض */
+    .escalators-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        align-items: center;
+    }
+    .escalator-image img { min-height: 320px; }
+
+    /* Why us */
+    .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    /* Contact: جنب بعض */
     .contact-grid {
         grid-template-columns: 1fr 1fr;
         gap: 25px;
         align-items: flex-start;
     }
-    .escalator-image img { min-height: 320px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* =========================================================
-   24. MOBILE
+   24. MOBILE (≤ 700px)
 ========================================================= */
 @media (max-width: 700px) {
     :root { --header-height: 72px; }
     html, body { width: 100%; max-width: 100%; }
+
     .container {
         width: 100%;
         padding-right: 16px;
@@ -877,12 +914,12 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     .logo img { width: 58px; height: 55px; }
     .logo-text strong { font-size: 20px; }
     .logo-text span { font-size: 6px; }
+
+    /* Hero */
     .hero { background-position: center center; }
     .hero-overlay {
         background: linear-gradient(90deg, rgba(7, 26, 51, 0.92), rgba(7, 26, 51, 0.62));
     }
-
-    /* HERO على الموبايل: جنب بعض */
     .hero-content {
         grid-template-columns: 1.1fr 1fr;
         gap: 12px;
@@ -915,25 +952,18 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
         padding: 8px 12px;
         font-size: 11px;
     }
-    .hero-card {
-        padding: 14px 12px;
-    }
+    .hero-card { padding: 14px 12px; }
     .hero-card-label { font-size: 9px; }
-    .hero-card h3 {
-        font-size: 13px;
-        margin-bottom: 10px;
-    }
+    .hero-card h3 { font-size: 13px; margin-bottom: 10px; }
     .hero-service-item {
         font-size: 10px;
         padding: 6px 4px;
         gap: 5px;
     }
-    .hero-service-num {
-        font-size: 10px;
-        min-width: 18px;
-    }
+    .hero-service-num { font-size: 10px; min-width: 18px; }
     .hero-service-arrow { font-size: 9px; }
 
+    /* Sections */
     .section { padding: 45px 0; }
     .section-heading { margin-bottom: 25px; }
     .section-heading h2,
@@ -941,17 +971,20 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     .escalators-content h2,
     .contact-info h2,
     .parts h2 { font-size: 26px; }
+
+    /* About */
     .about-image,
     .image-placeholder { min-height: 280px; }
     .image-placeholder span { font-size: 40px; }
     .about-features { gap: 20px; }
 
+    /* Products */
     .products-swiper { padding: 0 0 45px; }
     .products-swiper .swiper-button-next,
     .products-swiper .swiper-button-prev { display: none; }
     .product-image { height: 180px; }
 
-    /* ESCALATORS على الموبايل: جنب بعض */
+    /* Escalators: جنب بعض */
     .escalators-grid {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
@@ -988,13 +1021,11 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
         border-radius: 8px;
     }
 
-    .why-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+    /* Why us */
+    .why-grid { grid-template-columns: 1fr; gap: 14px; }
     .why-card { padding: 18px; }
 
-    /* CONTACT على الموبايل: جنب بعض */
+    /* Contact: جنب بعض */
     .contact-grid {
         grid-template-columns: 1fr 1.2fr;
         gap: 12px;
@@ -1014,14 +1045,8 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     .contact-item { margin-bottom: 10px; }
     .contact-item strong { font-size: 11px; }
     .contact-item span,
-    .contact-item a {
-        font-size: 10px;
-        word-break: break-word;
-    }
-    .contact-form {
-        padding: 14px 12px;
-        gap: 8px;
-    }
+    .contact-item a { font-size: 10px; word-break: break-word; }
+    .contact-form { padding: 14px 12px; gap: 8px; }
     .contact-form input,
     .contact-form select,
     .contact-form textarea {
@@ -1036,11 +1061,13 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
         font-size: 11px;
     }
 
+    /* Clients */
     .client-logo {
-        width: 130px;
-        height: 85px;
+        width: 130px; height: 85px;
         padding: 10px;
     }
+
+    /* Footer */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -1052,7 +1079,7 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
 }
 
 /* =========================================================
-   25. SMALL MOBILE
+   25. SMALL MOBILE (≤ 450px)
 ========================================================= */
 @media (max-width: 450px) {
     .logo-text { display: none; }
@@ -1063,21 +1090,15 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     }
     .lang-switcher i { font-size: 12px; }
 
-    /* HERO على الموبايل الصغير */
+    /* Hero */
     .hero-content {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         padding: 25px 10px;
     }
     .hero h1 { font-size: 17px; }
-    .hero-text > p {
-        font-size: 10px;
-        line-height: 1.5;
-    }
-    .hero-small {
-        font-size: 8px;
-        padding: 3px 6px;
-    }
+    .hero-text > p { font-size: 10px; line-height: 1.5; }
+    .hero-small { font-size: 8px; padding: 3px 6px; }
     .hero-card { padding: 10px 8px; }
     .hero-card h3 { font-size: 11px; margin-bottom: 8px; }
     .hero-card-label { font-size: 8px; }
@@ -1089,13 +1110,10 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     .contact-info h2,
     .parts h2 { font-size: 23px; }
 
-    /* ESCALATORS على الموبايل الصغير */
+    /* Escalators */
     .escalators-grid { gap: 8px; }
     .escalators-content h2 { font-size: 14px; }
-    .escalators-content p {
-        font-size: 10px;
-        line-height: 1.5;
-    }
+    .escalators-content p { font-size: 10px; line-height: 1.5; }
     .escalators-content li { font-size: 9px; }
     .escalators-content .btn {
         min-height: 32px;
@@ -1104,17 +1122,14 @@ html[dir="ltr"] .contact-item { align-items: flex-start; }
     }
     .escalator-image img { min-height: 160px; }
 
-    /* CONTACT على الموبايل الصغير */
+    /* Contact */
     .contact-grid { gap: 8px; }
     .contact-info h2 { font-size: 13px; }
     .contact-info > p { font-size: 9px; }
     .contact-item strong { font-size: 10px; }
     .contact-item span,
     .contact-item a { font-size: 9px; }
-    .contact-form {
-        padding: 10px 8px;
-        gap: 6px;
-    }
+    .contact-form { padding: 10px 8px; gap: 6px; }
     .contact-form input,
     .contact-form select,
     .contact-form textarea {
